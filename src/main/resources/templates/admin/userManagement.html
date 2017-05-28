@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Admin Page</title>
+	<th:block th:replace="admin/share::main"></th:block>
+    <th:block th:replace="admin/share::head"></th:block>
+    <link href="../static/css/userManagement.css" th:href="@{/css/userManagement.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/admin/userManagement.js}" ></script>
+</head>
+<body>
+    <nav th:replace="admin/share::header"></nav>
+    <div class="header">
+  <h2>User Management</h2>
+</div>
+<div class="content">
+	<div class="panel-btn">
+        <div class="searchbar" style="position:relative; left:20px">
+          <input type="text" id="txt_search" name="search" class="searchbox" placeholder="Search.."/>
+          <button type="submit" id="btn_search" class="alert button expand"><span class="glyphicon glyphicon-search"></span></button>
+        </div>
+          <a class="btn edit" onclick="handleUpdateUser(this)">Update</a>
+          <a class="btn delete"  onclick="handleDelete()">Delete</a>
+          <a class="btn add"  onclick="handleUpdateUser(this)" data-toggle="modal" data-target="#Modal">Add</a>
+  </div>
+  <div class="table">
+	  <table class="table-fill">
+  		<thead>
+  			<tr>
+  				<th class="text-center">ID</th>
+  				<th class="text-left">Username</th>
+  				<th class="text-left">Email</th>
+  				<th class="text-left">Address</th>
+  				<th class="text-left">Phone</th>
+  				<th class="text-left">Package</th>
+  			</tr>
+  		</thead>
+  		<tbody class="table-hover" id="userTable">
+  		</tbody>
+	  </table>
+	</div>
+  </div>
+
+  <div class="modal fade" id="Modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create New User</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <label>Username</label>
+            <input type="text" id="username"/>
+          </div>
+          <div class="row">
+            <label>Email</label>
+            <input type="email" id="email"/>
+          </div>
+          <div class="row">
+            <label>Password</label>
+            <input type="password" id="password"/>
+          </div>
+          <div class="row">
+            <label>Fullname</label>
+            <input type="text" id="fullname"/>
+          </div>
+           <div class="row">
+            <label>Address</label>
+            <input type="text" id="address"/>
+          </div>
+           <div class="row">
+            <label>Phone</label>
+            <input type="number" id="phone"/>
+          </div>
+            <div class="row">
+            <label>Package</label>
+            <select id="package" style = "position:relative; left:85px;border-radius:4px; padding:5px">
+                <option>Month</option>
+                <option>Year</option>
+            </select>
+          </div>
+            </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"  data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="submitUpdateUser(this)" id="create-btn" >Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" id="users" th:value="${users}"/>
+</body>
+</html>

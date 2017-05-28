@@ -1,0 +1,257 @@
+body{
+	background-image: url("../images/Black_Bg.jpg");
+	background-position: 200px 200px;
+}
+.content{
+	display: block;
+}
+
+.header h2{
+	color: white;
+	text-align: center;
+	font-family: "Lucida Grande", "Helvetica Neue", Helvetica, "Lucida Sans", Arial, Verdana, sans-serif;
+}
+.searchbar{
+    z-index: 1;
+    position: absolute;
+    margin: 8px 8px 8px 7px;
+    float: left;
+    width: 130%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.searchbox:hover,.searchbox:focus{
+    border: 1px solid #00C368;
+}
+.searchbar #btn_search{
+    margin: 0;
+    height: 34px;
+    padding: 7px 11px;
+    border-radius: 0 5px 5px 0;
+    transition: all 0.5s ease;
+    font-size: 16px;
+    color: #eee;
+    background: linear-gradient(#2175C9,#288DF2);
+    z-index: 1000;
+    text-align: right;
+}
+.searchbar #btn_search:hover{
+    text-shadow: 0.5px 0.5px #ddd;
+    color: #fff;
+    background: linear-gradient(#2682DE,#2C95FF);
+}
+.searchbox{
+    border: none;
+    border-radius: 2px;
+    color: #333;
+    display: inline-block;
+    font-size: 14px;
+    height: 34px;
+    float: left;
+    padding: 7px 0 7px 7px;
+    width: 320px;
+    margin: 0;
+    border: 0.5px solid #ddd;
+    width: 80%;
+    position: relative;
+    left: 10px;
+    z-index: 100;
+    margin-right: 10px;
+}
+.panel-btn{
+	padding: 0 100px;
+	height: 40px;
+	margin-bottom: 20px;
+    width: 35%;
+    float: left;
+}
+
+.date-picker{
+    float: left;
+    width: 40%;
+    position: relative;
+    top:10px;
+}
+.date-picker .from{
+    width: 40%;
+    float: left;
+    display: inline-block;
+}
+.date-picker .from .label{
+    width: 30%;
+    float: left;
+    height: 34px;
+    text-align: center;
+    
+}
+.label span{
+    position: relative;
+    font-size: 16px;
+    top:5px;
+}
+.date-picker .from #datetimepicker1{
+    width: 70%;
+    height: 34px;
+}
+.date-picker .to{
+    width: 40%;
+    float: left;
+}
+.date-picker .to .label{
+    width: 30%;
+    float: left;
+    height: 34px;
+    text-align: center;
+    
+}
+.label span{
+    position: relative;
+    font-size: 16px;
+    top:5px;
+}
+.date-picker .to #datetimepicker2{
+    width: 70%;
+    height: 34px;
+}
+
+.Parking select{
+    position: relative;
+    top:10px;
+    width: 10%;
+    height: 34px;
+    border-radius: 5px;
+    margin-left: 70px;
+}
+.edit:before   {content: "\270E"; }
+
+.delete:before { content: "\2718"; }
+.add:before    { content: "\271A"; }
+
+.table{
+	/*display: block;*/
+	height: 500px;
+	 overflow: auto;
+	 width: 1090px;
+	 margin: 0 auto;
+}
+.table-fill {
+  background: white;
+  border-radius:3px;
+  border-collapse: collapse;
+  padding:5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+
+}
+
+.table-fill th {
+
+  color:#D5DDE5;;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:23px;
+  font-weight: 100;
+  padding:24px  36px;
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+
+}
+
+.table-fill th:first-child {
+  border-top-left-radius:3px;
+}
+ 
+.table-fill th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+  
+.table-fill tr {
+	background:#FFFFFF;
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+
+}
+ 
+.table-fill tr:hover td ,
+.selected td{
+  background:#4E5066 !important;
+  color:#FFFFFF;
+  border-top: 1px solid #22262e;
+  border-bottom: 1px solid #22262e;
+}
+ 
+.table-fill tr:first-child {
+  border-top:none;
+}
+
+.table-fill tr:last-child {
+  border-bottom:none;
+}
+ 
+.table-fill tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+ 
+.table-fill tr:nth-child(odd):hover td {
+  background:#4E5066;
+}
+
+.table-fill tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+.table-fill tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+ 
+.table-fill td {
+  
+  padding:20px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+   height: 50px;
+
+}
+.table-fill thead tr th{
+    font-size: 20px;    
+} 
+.table-fill td:last-child {
+  border-right: 0px;
+}
+
+.table-fill th.text-left {
+  text-align: left;
+}
+
+.table-fill th.text-center {
+  text-align: center;
+}
+
+.table-fill th.text-right {
+  text-align: right;
+}
+
+.table-fill td.text-left {
+  text-align: left;
+}
+
+.table-fill td.text-center {
+  text-align: center;
+}
+
+.table-fill td.text-right {
+  text-align: right;
+}

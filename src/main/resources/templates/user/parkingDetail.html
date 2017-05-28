@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Parking</title>
+    <th:block th:replace="user/share::main"></th:block>
+    <th:block th:replace="user/share::head"></th:block>
+    <link href="../static/css/parkingDetail.css" th:href="@{/css/parkingDetail.css}" rel="stylesheet" />
+    <script type="text/javascript" th:inline="javascript" th:src="@{/js/user/parkingDetail.js}" ></script>
+    
+</head>
+<body>
+    <nav th:replace="user/share::header"></nav>
+    <div class="background"></div>
+	<div class="panel">
+	  <a class="button edit" data-toggle="modal" data-target="#myModal">Update</a>
+	  <a class="button delete">Delete</a>
+	  <select id="numOfFloor" name="numOfFloor">
+	    <option th:each="f : ${parking.floors}" th:value="${f.level}" th:text="Floor + ${f.level}">Floor 1</option>
+	  </select>
+	</div>
+	<div>
+		<input type="hidden" id="parking" th:value="${p}"/>
+		<div class="content" id="listSpace">
+		</div>
+
+	<button class="add-row"><span class="glyphicon glyphicon-plus"></span></button>
+    <button class="add-column"><span class="glyphicon glyphicon-plus"></span></button>
+  </div>
+    <!-- Modal 1 -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Update Parking lot</h4>
+        </div>
+        <div class="modal-body">
+        <div class="row">
+        	<label>Parking lot Name</label>
+        	<input type="text" class="new-parkinglot-name" th:value="${parking.name}"/>
+        </div>
+        <div class="row">
+            <label>Floor Number</label>
+            <div class="floor-number">
+            <a class="button minus"><span class="glyphicon glyphicon-minus"></span></a>
+            <input type="number" name="numberOfFloor" min="1" step="1" id="Fnumber" th:value="${#lists.size(parking.floors)}"/>
+            
+            <a class="button add" data-toggle="modal" data-target="#myModal2"><span class="glyphicon glyphicon-plus"></span></a>
+            </div>
+            </div>
+             <div class="list-group" id="listFloor">
+                <div class="list-left">   
+                 <div id="list-floor">
+                 </div>
+                </div>
+                <div class="input-right" id="list-right">
+                </div>
+              </div>
+              </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="btnUpdateParking" data-dismiss="modal">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ////////////////////////////////////////////////////////// -->
+  <!-- Modal 2 -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Insert floor</h4>
+        </div>
+        <div class="modal-body">
+                         <div class="row">
+                    <label>Number of Rows </label>
+                    <input type="number" class="rowNumber" min="1" step="1" id="rowNumber" value="1"/>
+                  </div>
+                  <div class="row">
+                    <label>Number of Columns </label>
+                    <input type="number" class="colNumber" min="1" step="1" id="colNumber" value="1"/>
+                  </div>
+              </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="btnAddFloor" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /////////////////////////////////////////////////////// -->
+</body>
+</html>

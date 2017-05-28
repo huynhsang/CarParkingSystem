@@ -1,0 +1,193 @@
+body{
+	background-image: url("../images/Black_Bg.jpg");
+	background-position: 200px 200px;
+}
+
+
+.header h2{
+	color: white;
+	text-align: center;
+	font-family: "Lucida Grande", "Helvetica Neue", Helvetica, "Lucida Sans", Arial, Verdana, sans-serif;
+}
+
+.content{
+  height: 500px;
+  width: 800px;
+  margin: 20px auto;
+  padding: 5px;
+  display: block;
+}
+.ticket{
+  height: 53px;
+  margin: 20px 0;
+  background: rgba(250,250,250,0.3);
+  padding: 10px;
+}
+.revenue{
+  height: 135px;
+  background: rgba(250,250,250,0.3);
+  padding: 10px;
+}
+.ticket label,
+.revenue label{
+  margin: 0;
+  text-align: center;
+  background: #0A7575;
+color: #eee;
+font-weight: bold;
+display: block;
+/*width: 150px;*/
+float: left;
+padding: 3px 20px;
+font-size: 20px;
+}
+.ticket span,
+.revenue span{
+  text-align: center;
+  background: #fff;
+  color: #0A7575;
+  font-weight: bold;
+  /*width: 150px;*/
+  /*margin-left: 10px;*/
+float: left;
+padding: 3px 181px;
+font-size: 20px;
+/*text-shadow: 1px 1px #ff0000;*/
+}
+.revenue label{
+  padding: 3px 35px;
+}
+.revenue span{
+  /*margin-left: 10px;*/
+  font-size: 18px;
+  padding: 4px 4px;
+  width: 473px;
+  
+}
+.revenue .from{
+  margin: 40px 0 5px 0;
+}
+.revenue .to,
+.revenue .from{
+  margin-left: 151px;
+}
+.revenue .from span,
+.revenue .to span{
+  width: 84px;
+  padding: 4px;
+}
+.time-input{
+  padding: 5px;
+  /*float: left;*/
+  width: 122px;
+  margin: 0 0 0 5px;
+  text-indent: 10px;
+}
+.to .done{
+  height: 34px;
+  padding: 3px 46px;
+  font-size: 18px;
+  font-weight: 700;
+  margin:0;
+  border-width: 1px;
+}
+.btn {
+  float: right;
+      white-space: nowrap;
+    background-color: #ccc;
+    background: linear-gradient(#eee, #ccc);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+    border: 1px solid #777;
+    height: 34px;
+    padding: 2.5px 1.5em;
+    margin: 1px;
+    font: bold 1em/2em Arial, Helvetica;
+    text-decoration: none;
+    color: #333;
+    text-shadow: 0 1px 0 rgba(255,255,255,.8);
+    border-radius: 0;
+    box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+    cursor: pointer;
+    margin: 0;
+}
+.btn:hover {
+  text-decoration: none;
+    background-color: #ddd;        
+    background: linear-gradient(#fafafa, #ddd);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');        
+}
+.btn:active {
+  text-decoration: none;
+    box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+    position: relative;
+    top: 1px;
+}
+
+.btn:focus {
+  text-decoration: none;
+    outline: 0;
+    background: #fafafa;
+}    
+.btn:before {
+    background: #ccc;
+    background: rgba(0,0,0,.1);
+    float: left;        
+    width: 1.5em;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 0 1em 0 -1em;
+    padding: 0 .2em;
+    box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+    border-radius: .15em 0 0 .15em;
+    pointer-events: none;        
+}
+.edit:before   {content: "\270E"; }
+/*----------------------Modal---------------------------*/
+.modal-header{
+  background-color: #095E5E;
+  margin: 3px;
+  color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+.modal-title{
+  font-weight: bold;
+  line-height: 2em;
+  margin-left: 5px;
+}
+.row{
+  margin: 0;
+  padding: 10px 0 10px 0;
+  height: 50px;
+}
+.row input{
+      width: 400px;
+    font-size: 1em;
+    border-width: 2px 1px 1px 1px;
+    border-style: solid;
+    border-color: #ddd;
+    padding: 3px 3px 3px 6px;
+    border-radius: 5px;
+    margin: 0;
+    float: right;
+}
+.row label{
+  float: left;
+  margin: 0;
+    padding: 4px 15px 4px 0px;
+}.modal-body{
+  width: inherit;
+  display: block;
+  padding:5px 20px;
+}
+.modal-body label{
+  font-size: 14px;
+  float: left;
+  margin: 0;
+  padding: 4px 15px 4px 0px;
+}
+#create-btn{
+      color: #fff;
+    background: #337ab7;
+    border-color: #2e6da4;
+}

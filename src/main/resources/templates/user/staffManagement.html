@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Home</title>
+	
+    <th:block th:replace="user/share::main"></th:block>
+    <th:block th:replace="user/share::head"></th:block>
+    <link href="../static/css/staffManagement.css" th:href="@{/css/staffManagement.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/user/staffManagement.js}" ></script>
+</head>
+<body>
+    <nav th:replace="user/share::header"></nav>
+    <div class="header">
+	  <h2>Staff Management</h2>
+	</div>
+	<div class="content">
+		<div class="panel-btn">
+	        <div class="searchbar">
+	          <input type="text" id="txt_search" name="search" class="searchbox" placeholder="Search.."/>
+	          <button id="btn_search" class="alert button expand"><span class="glyphicon glyphicon-search"></span></button>
+	        </div>
+	         <a class="btn edit" onclick="handleUpdateStaff(this)">Update</a>
+	          <a class="btn delete" onclick="handleDelete()">Delete</a>
+	          <a class="btn add" onclick="handleUpdateStaff(this)" data-toggle="modal" data-target="#Modal">Add</a>
+		</div>
+	  	<div class="table">
+		  <table class="table-fill">
+			<thead>
+			<tr>
+			<th class="text-center">ID</th>
+			<th class="text-left">Fullname</th>
+			<th class="text-left">Username</th>
+			<th class="text-left">Email</th>
+			<th class="text-left">Phone</th>
+			<th class="text-left">Parking</th>
+			</tr>
+			</thead>
+			<tbody class="table-hover" id="staffTable">
+			</tbody>
+		  </table>
+		</div>
+	</div>
+
+<!--  -->
+<!-- Modal -->
+  <div class="modal fade" id="Modal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Create New Staff</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <label>Fullname</label>
+            <input type="text" id="fullname"/>
+          </div>
+          <div class="row">
+            <label>Username</label>
+            <input type="text" id="username" />
+          </div>
+          <div class="row">
+            <label>Password</label>
+            <input type="Password" id="password" />
+          </div>
+           <div class="row">
+            <label>Email</label>
+            <input type="Email" id="email"/>
+          </div>
+          <div class="row">
+            <label>Phone</label>
+            <input type="number" id="phone" />
+          </div>
+          <div class="row">
+            <label>Address</label>
+            <input type="text" id="address" />
+          </div>
+          <div class="row">
+            <label>Parking</label>
+            <select class="selectpicker" id="parking" title="Choose...">
+              <option th:each="p : ${parkings}" th:value="${p.id}" th:text="${p.name}"></option>
+            </select>
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="submitUpdateStaff(this)" id="create-btn" >Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" id="staffs" th:value="${staffs}"/>
+</body>
+</html>

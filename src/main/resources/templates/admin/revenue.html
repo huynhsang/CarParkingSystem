@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Revenue</title>
+    <th:block th:replace="admin/share::main"></th:block>
+    <th:block th:replace="admin/share::head"></th:block>
+    <link href="../static/css/revenue.css" th:href="@{/css/revenue.css}" rel="stylesheet" />
+    <link href="../static/css/pagination.css" th:href="@{/css/pagination.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/admin/revenue.js}" ></script>
+</head>
+<body>
+    <nav th:replace="admin/share::header"></nav>
+    <div class="container">
+    	<div class="row">
+    		<div class="col-md-8">
+    			<div class="panel panel-default">
+    				<div class="panel-body">
+    					<div class="left">
+    						<input class="revenueSearchByUsername" id="txt_search" type="text" placeholder="Type an username..."/>
+    					</div>
+    					<div class="right">
+    						<div class="form-group">
+						      <label for="page" style="padding: 6px 6px 0 0;">Per Page:</label>
+						      <select class="form-control right" style="width: 70px" id="page">
+						        <option>10</option>
+						        <option>20</option>
+						        <option>30</option>
+						        <option>40</option>
+						      </select>
+						    </div>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="panel panel-default">
+    				<div class="panel-body">
+    					<div class="table-responsive">
+    						<Table class="table table-hover">
+    							<thead>
+    								<tr>
+    									<th>ID</th>
+    									<th>Username</th>
+    									<th>Phone</th>
+    									<th>Date</th>
+    									<th>Packet</th>
+    									<th>Price</th>
+    								</tr>
+    							</thead>
+    							<tBody id="ListRevenue">
+    							</tBody>
+    						</Table>
+    					</div>
+    					<div class="text-center">
+    						<div class="pagination">
+							  <a href="#">&laquo;</a>
+							  <a href="#" class="active">1</a>
+							  <a href="#">2</a>
+							  <a href="#">3</a>
+							  <a href="#">4</a>
+							  <a href="#">5</a>
+							  <a href="#">6</a>
+							  <a href="#">&raquo;</a>
+	    					</div>
+    					</div>
+    				</div>
+    			</div>	
+    		</div>
+    		<div class="col-md-4">
+    			<div id = "revenue_area">
+			        <form>
+			        <table>
+			            <tr>
+			                <td colspan="4">Revenue</td>
+			            </tr>
+			            <tr>
+			                <td></td>
+			                <td>Day</td>
+			                <td>Month</td>
+			                <td>Year</td>
+			            </tr>
+			            <tr>
+			                <td>From</td>
+			                <td><input type = "text" id="day-from" class = "form-control"/></td>
+			                <td><input type = "text" id="month-from" class = "form-control"/></td>
+			                <td><input type = "text" id="year-from" class = "form-control"/></td>
+			            </tr>
+			            <tr>
+			                <td>To</td>
+			                <td><input type = "text" id="day-to" class = "form-control"/></td>
+			                <td><input type = "text" id="month-to" class = "form-control"/></td>
+			                <td><input type = "text" id="year-to" class = "form-control"/></td>
+			            </tr>
+			            <tr>
+			                <td></td>
+			                <td colspan="3"><input type = "button" onclick="RevenueSearching()" class = "btn" value = "submit"/></td>                    
+			                
+			            </tr>
+			            <tr>
+			                <td></td>
+			                <td colspan = "3"  ><textarea class="form-control" id="PriceTotal" rows="2"></textarea></td>
+			            </tr>
+			            
+			        </table>
+			        </form>
+		        </div>
+    		</div>
+    	</div>
+    </div>
+    <input type="hidden" id="users" th:value="${users}"/>
+</body>
+</html>

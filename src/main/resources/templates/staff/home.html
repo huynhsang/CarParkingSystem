@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Staff Home</title>
+	
+    <th:block th:replace="staff/share::main"></th:block>
+    <th:block th:replace="staff/share::head"></th:block>
+    <link href="../static/css/staff.css" th:href="@{/css/staff.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/staff/home.js}" ></script>
+</head>
+<body>
+    <nav th:replace="staff/share::header"></nav>
+    <div class="background"></div>
+	<div class="panel">
+	  <h1>The cars in the parking lot: <span id="amountOfCar"></span></h1>
+	  <select id="numOfFloor" name="numOfFloor">
+	    <option th:each="f : ${parking.floors}" th:value="${f.level}" th:text="Floor + ${f.level}">Floor 1</option>
+	  </select>
+	</div>
+	
+	<div class="content" id="listSpace">
+	</div>
+	<button class="inve" type="button" onclick="printTicket()">Print Ticket</button>
+	<!-- Modal -->
+	<div id="myModal1" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Get Ticket</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Position:<span id="position"> A10 - F1 </span></p>
+	        <div style="height: 34px;">
+	        <input class="biensoxe" type="text" name="" id="licensePlate" placeholder="Input License Plate..."/>
+	        <input class="btn btn-primary" type="submit" name="" onclick="getTicket()"/>
+	        </div>
+	        <div class="mave" id="ticketCode">Ticket code:</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	
+	      </div>
+	    </div>
+	
+	  </div>
+	</div>
+	    <!---->
+	    <!-- Modal -->
+	<div id="myModal2" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title" id="Out_BlankPosition">C1</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>License Plate:<span id="Out_LicensePlate"> DC 41 57912 </span></p>      
+	        <p>Ticket Code: <span id="Out_TicketCode"> A12311232 </span></p>
+	        <p>From: <span id="Out_TimeFrom"> 15/02/2017 08:20:33</span></p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="returnTicket()">Return Ticket</button>
+	      </div>
+	    </div>
+	
+	  </div>
+	</div>
+	<input type="hidden" id="parking" th:value="${p}"/>
+	<input type="hidden" id="staffName" th:value="${staffname}"/>
+	<input type="hidden" id="tickets" th:value="${tickets}"/>
+	    <!---->
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Home</title>
+	
+    <th:block th:replace="user/share::main"></th:block>
+    <th:block th:replace="user/share::head"></th:block>
+    <link href="../static/css/parkingDiary.css" th:href="@{/css/parkingDiary.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/user/parkingDiary.js}" ></script>
+        <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'/>
+</head>
+<body>
+    <nav th:replace="user/share::header"></nav>
+    
+    <div class="header">
+  <h2>Parking Diary</h2>
+</div>
+<div class="content">
+	<div class="panel-btn">
+        <div class="searchbar" style="position:relative; left:20px">
+          <form method="GET" action="#" accept-charset="UTF-8">
+          <input type="text" id="txt_search" name="search" class="searchbox" placeholder="Search.."/>
+          <button type="submit" id="btn_search" class="alert button expand"><span class="glyphicon glyphicon-search"></span></button>
+          </form>
+        </div>
+    </div>
+        
+<!--        date picker-->
+         
+    <div class = "date-picker">    
+        <div class="form-group from">
+            <div class = "label">
+                <span>From</span>  
+            </div>
+            <div class='input-group date' id='datetimepicker1'>
+
+                <input type='text' class="form-control" />
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group to">
+            <div class = "label">
+                <span>To</span>  
+            </div>
+            <div class='input-group date' id='datetimepicker2'>
+
+                <input type='text' class="form-control" />
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+            
+        <!--            end datepicker-->
+    <div class = "Parking">
+        <select id="ParkingName">
+	    <option th:each="p : ${parkings}" th:value="${p.id}" th:text="${p.name}">parking name</option>
+	  </select>
+    </div>
+    
+        
+
+  <div class="table">
+	<table class="table-fill">
+		<thead>
+		<tr>
+		<th class="text-center">#</th>
+		<th class="text-left">License</th>
+		<th class="text-left">Code</th>
+		<th class="text-left">Time in</th>
+		<th class="text-left">Time out</th>
+		<th class="text-left">Position</th>
+		
+		<th class="text-left">State</th>   
+		</tr>
+		</thead>
+		<tbody class="table-hover" id="ListDiary">
+		<tr>
+		<td class="text-center">1</td>
+		<td class="text-center">43K7-0439</td>
+		<td class="text-left">4562</td>
+		<td class="text-left">16:4</td>
+		<td class="text-left">17:0</td>
+		<td class="text-left">A12</td>
+		
+		<td class="text-left">In</td>
+		</tr>
+		<tr>
+		<td class="text-center">2</td>
+		<td class="text-center">43K7-0439</td>
+		<td class="text-left">4562</td>
+		<td class="text-left">16:4</td>
+		<td class="text-left">17:0</td>
+		<td class="text-left">A12</td>
+		
+		<td class="text-left">In</td>
+		</tr>
+		</tbody>
+		</table>
+	</div>
+</div>
+<input type="hidden" id="tickets" th:value="${tickets}"/>
+</body>
+</html>
